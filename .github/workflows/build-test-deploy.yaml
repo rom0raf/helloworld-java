@@ -6,7 +6,7 @@ on:
 
 env:
   PROJECT_VERSION: 1.0.0
-  JAR_FILENAME: helloworld-$PROJECT_VERSION.jar
+  JAR_FILENAME: "helloworld-${{$PROJECT_VERSION}}.jar"
   MAVEN_OPTS: "-Dmaven.repo.local=/maven-cache/libs"
   
 jobs:
