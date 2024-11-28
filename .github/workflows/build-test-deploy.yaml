@@ -5,8 +5,8 @@ on:
    branches: [master, main]
 
 env:
-  PROJECT_VERSION: "1.0.0"
-  JAR_FILENAME: "helloworld-${{$PROJECT_VERSION}}.jar"
+  PROJECT_VERSION: 1.0.0
+  JAR_FILENAME: helloworld-$PROJECT_VERSION.jar
   MAVEN_OPTS: "-Dmaven.repo.local=/maven-cache/libs"
   
 jobs:
@@ -21,8 +21,8 @@ jobs:
           distribution: 'corretto'
           cache: maven
 
-      - name: "Build project version ${{ $PROJECT_VERSION }}"
-        run: mvn clean package -DskipTests -Djar.finalName=${{$JAR_FILENAME}}
+      - name: "Build project version ${{$PROJECT_VERSION}}"
+        run: mvn clean package -DskipTests -Djar.finalName=$JAR_FILENAME
 
       - name: "Load cache"
         uses: actions/cache@v4.1.2
@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4.4.3
         with: 
           name: Final_Jar
-          path: ${{$JAR_FILENAME}}
+          path: $JAR_FILENAME
           
   tests:
     runs-on: ubuntu-latest
