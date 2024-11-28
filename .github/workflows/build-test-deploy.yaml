@@ -6,7 +6,7 @@ on:
 
 env:
   PROJECT_VERSION: 1.0.0
-  MAVEN_OPTS: "-Dmaven.repo.local=/maven-cache/libs"
+  # MAVEN_OPTS: "-Dmaven.repo.local=/maven-cache/libs"
   
 jobs:
   build-cache:
@@ -22,9 +22,6 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: maven
-
-      - name: "Setup cache directory"
-        run: mkdir /maven-cache && mkdir /maven-cache/libs/
 
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION.jar
