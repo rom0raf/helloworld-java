@@ -23,6 +23,9 @@ jobs:
           distribution: 'corretto'
           cache: maven
 
+      - name: "Setup cache directory"
+        run: mkdir /maven-cache/libs
+
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION.jar
 
