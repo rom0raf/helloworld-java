@@ -20,7 +20,7 @@ jobs:
           distribution: 'corretto'
           cache: maven
 
-      - name: "Build project version ${{$PROJECT_VERSION}}"
+      - name: "Build project"
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION.jar
 
       - name: "Load cache"
