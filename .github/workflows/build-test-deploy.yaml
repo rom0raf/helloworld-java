@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4.4.3
         with: 
           name: Final_Jar
-          path: $JAR_FILENAME
+          path: /home/runner/work/lib/helloworld-$PROJECT_VERSION.jar
           
   tests:
     runs-on: ubuntu-latest
