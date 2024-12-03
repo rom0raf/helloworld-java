@@ -44,6 +44,8 @@ jobs:
     name: "Run tests"
     needs: [build-cache]
     steps:
+      - name: "Run ls"
+        run: ls -l
       - name: "Run tests"
         run: mvn test
 
