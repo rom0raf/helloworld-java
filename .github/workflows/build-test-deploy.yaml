@@ -44,8 +44,21 @@ jobs:
     name: "Run tests"
     needs: [build-cache]
     steps:
-      - name: "Run ls"
-        run: ls
+      - name: "Code Checkout"
+        uses: actions/checkout@v4.2.2
+        
+      - name: "Set up JDK 17"
+        uses: actions/setup-java@v4.5.0
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+
+      - name: "Load cache"
+        uses: actions/cache@v4.1.2
+        with:
+          path: "/home/runner/work/lib"
+          key: maven-cache
+          
       - name: "Run tests"
         run: mvn test
 
