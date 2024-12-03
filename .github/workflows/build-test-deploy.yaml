@@ -26,10 +26,10 @@ jobs:
       - name: "Build project"
         run: mvn clean package -DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION.jar
 
-      - name: "Load cache"
-        uses: actions/cache@v4.1.2
-        with:
-          path: "/maven-cache/libs"
+      # - name: "Load cache"
+      #   uses: actions/cache@v4.1.2
+      #   with:
+      #     path: "/maven-cache/libs"
 
       - name: "Upload a Build Artifact"
         uses: actions/upload-artifact@v4.4.3
